@@ -13,3 +13,15 @@ Upgrade pip
 py -m pip install --upgrade pip
 
 Install requirements
+Dev requirements
+mypy
+ruff
+black
+ipykernel
+
+Regular Requirements
+fastapi[all]
+diffusers==0.8.0
+transformers
+scipy
+ftfy
