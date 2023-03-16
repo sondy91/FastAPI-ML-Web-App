@@ -7,22 +7,25 @@ from PIL.Image import Image
 token_path = Path("token.txt")
 token = token_path.read_text().strip()
 
+model_id = "CompVis/stable-diffusion-v1-4"
+device = "cuda"
 #get your token at https://huggingface.co/settings/token
 pipe = StableDiffusionPipeline.from_pretrained(
-    "CompVis/stable-diffusion-v1-4", 
+    model_id, 
     revision="fp16", 
-    torch_dtype=torch.float16, 
+    torch_dtype=torch.float16,
     use_auth_token=token,
 )
 
-pipe.to("cuda")
+pipe.to(device)
 
-prompt = "a photograph of an astronaut riding a horse"
+#prompt = "a photograph of an astronaut riding a horse"
 
-# image = pipe(prompt)["sample"][0]
+# generate the image from the prompt
+#image = pipe(prompt).images[0]
 
 # you can save the image with
-# image.save(f"astronaut_rides_horse.png")
+#image.save(f"astronaut_rides_horse.png")
 
 def obtain_image(
     prompt: str,

@@ -33,7 +33,11 @@ def generate_image(
     num_inference_steps: int = 50,
     guidance_scale: float = 7.5
 ):
-    image = obtain_image(prompt, num_inference_steps=num_inference_steps, seed=seed, guidance_scale=guidance_scale)
+    image = obtain_image(
+        prompt, 
+        num_inference_steps=num_inference_steps,
+        seed=seed,
+        guidance_scale=guidance_scale)
     image.save("image.png")
     return FileResponse("image.png")
 
